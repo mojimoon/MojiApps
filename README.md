@@ -1,6 +1,4 @@
-# Mojiapps
-
-A collection of simple web applications, mostly built with Gemini. Have fun!
+A collection of simple web applications built by Gemini. Have fun exploring!
 
 ## Tools
 
