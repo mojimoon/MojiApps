@@ -12,9 +12,11 @@ A Minimax / Alpha-Beta pruning visualizer.
 
 ### Terraria 1.4.5 Seed Generator
 
-Link: [/terraseeder.jsx](/terraseeder.jsx) (React)
+Link: [/terraseeder.html](/terraseeder.html)
 
 A Terraria 1.4.5 world seed generator that allows you to specify special world features and secret seeds.
+
+![](images/terraseeder.png)
 
 ## Games
 
