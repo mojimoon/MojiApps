@@ -12,7 +12,7 @@ A Minimax / Alpha-Beta pruning visualizer.
 
 ### Terraria 1.4.5 Seed Generator
 
-Link: [/terraseeder.html](/terraseeder.html)
+Link: [/terraria-seed.html](/terraria-seed.html)
 
 A Terraria 1.4.5 world seed generator that allows you to specify special world features and secret seeds.
 
