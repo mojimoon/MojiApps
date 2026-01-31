@@ -128,7 +128,7 @@
             cursor: pointer;
         }
         .flag-zenith {
-            grid-column: span 2;
+            /* grid-column: span 2; */
             border: 1px solid var(--special-zenith);
             background: rgba(150, 122, 220, 0.1);
         }
@@ -295,10 +295,10 @@
                 <input type="radio" name="diff" id="diff1" value="1" class="btn-radio">
                 <label for="diff1">普通 (1)</label>
                 
-                <input type="radio" name="diff" id="diff2" value="2" class="btn-radio" checked>
+                <input type="radio" name="diff" id="diff2" value="2" class="btn-radio">
                 <label for="diff2">专家 (2)</label>
                 
-                <input type="radio" name="diff" id="diff3" value="3" class="btn-radio">
+                <input type="radio" name="diff" id="diff3" value="3" class="btn-radio" checked>
                 <label for="diff3">大师 (3)</label>
 
                 <input type="radio" name="diff" id="diff4" value="4" class="btn-radio">
@@ -483,7 +483,7 @@
         { name: "永久圣诞节", code: "jingle all the way" },
         { name: "恶魔城诅咒 (吸血鬼)", code: "what a horrible night to have a curse" },
         { name: "团队出生点 (大逃杀)", code: "royale with cheese" },
-        { name: "双地牢", code: "dual dungeons" }
+        { name: "双地牢 (仅限移动/主机版)", code: "dual dungeons" }
     ];
 
     // 初始化页面
@@ -569,10 +569,10 @@
     // 随机全部
     function randomizeAll() {
         // 大小：随机 1-3
-        document.getElementById(`size${Math.floor(Math.random() * 3) + 1}`).checked = true;
+        // document.getElementById(`size${Math.floor(Math.random() * 3) + 1}`).checked = true;
         
         // 难度：随机 1-4
-        document.getElementById(`diff${Math.floor(Math.random() * 4) + 1}`).checked = true;
+        // document.getElementById(`diff${Math.floor(Math.random() * 4) + 1}`).checked = true;
 
         // 邪恶：随机 1-2
         document.getElementById(`evil${Math.floor(Math.random() * 2) + 1}`).checked = true;
@@ -584,8 +584,8 @@
         // 重置标志
         resetFlagsUI();
         
-        // 10% 概率天顶
-        if (Math.random() < 0.1) {
+        // 15% 概率天顶
+        if (Math.random() < 0.15) {
             document.getElementById('flag255').checked = true;
             handleZenith(document.getElementById('flag255'));
         } else {
@@ -597,8 +597,8 @@
                 }
             });
         }
-        // 20% 概率天空岛
-        if (Math.random() < 0.2) document.getElementById('flag256').checked = true;
+        // 15% 概率天空岛
+        if (Math.random() < 0.15) document.getElementById('flag256').checked = true;
 
         // 彩蛋：随机选 0-3 个
         const eggBoxes = document.querySelectorAll('.eggs-list input:not(:disabled)');
