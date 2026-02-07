@@ -444,7 +444,7 @@
 
             <br><br>
 
-            <strong>参考 Wiki：</strong> <a href="https://terraria.wiki.gg/wiki/Special_world_seeds" target="_blank" style="color: var(--accent-color); text-decoration: underline;">特殊世界种子</a>、<a href="https://terraria.wiki.gg/wiki/Secret_world_seeds" target="_blank" style="color: var(--accent-color); text-decoration: underline;">秘密世界种子</a>
+            <strong>参考 Wiki：</strong> <a href="https://terraria.wiki.gg/zh/wiki/%E7%89%B9%E6%AE%8A%E4%B8%96%E7%95%8C%E7%A7%8D%E5%AD%90" target="_blank" style="color: var(--accent-color); text-decoration: underline;">特殊世界种子</a>、<a href="https://terraria.wiki.gg/zh/wiki/%E7%A7%98%E5%AF%86%E4%B8%96%E7%95%8C%E7%A7%8D%E5%AD%90" target="_blank" style="color: var(--accent-color); text-decoration: underline;">秘密世界种子</a>
             
             <br>
             
@@ -456,41 +456,41 @@
 <script>
     // 彩蛋数据
     const eggs = [
-        { name: "画面黑白化", code: "monochrome" },
-        { name: "画面负片化", code: "negative infinity" },
-        { name: "隐形世界 (回声涂层)", code: "invisible plane" },
-        { name: "全亮世界 (夜明涂层)", code: "xray vision" },
+        { name: "灰色世界", code: "monochrome" },
+        { name: "反色世界", code: "negative infinity" },
+        { name: "回声世界 (隐形)", code: "invisible plane" },
+        { name: "夜明世界 (全亮)", code: "xray vision" },
         { name: "无地表", code: "mole people" },
         { name: "更多生命树", code: "save the rainforest" },
-        { name: "更多浮空岛", code: "the carebears movie" },
+        { name: "更多漂浮岛", code: "the carebears movie" },
         { name: "错误世界", code: "i am error" },
-        { name: "活死人之夜 (墓地+血月)", code: "night of the living dead" },
-        { name: "太空高度地表 (低重力)", code: "such great heights" },
-        { name: "永恒之雨", code: "bring a towel" },
-        { name: "更大的废弃房屋", code: "abandoned manors" },
+        { name: "活死人之夜 (血月墓地开局)", code: "night of the living dead" },
+        { name: "地表为太空", code: "such great heights" },
+        { name: "降雨一整年", code: "bring a towel" },
+        { name: "更大废弃房屋", code: "abandoned manors" },
         { name: "随机出生点", code: "how did i get here" },
         { name: "添加传送机", code: "beam me up" },
         { name: "困难模式开局", code: "too easy" },
-        { name: "无感染世界", code: "fish mox" },
-        { name: "地表神圣", code: "" },
-        { name: "全感染世界", code: "purify this" },
-        { name: "全蘑菇地表", code: "toadstool" },
-        { name: "全沙漠地表", code: "sandy britches" },
-        { name: "便便世界", code: "truck stop" },
-        { name: "没有蜘蛛洞", code: "arachnophobia" },
-        { name: "更多陷阱 (实际上没有？)", code: "more traps please" },
-        { name: "彩虹之路", code: "rainbow road" },
-        { name: "满是矿洞", code: "jagged rocks" },
-        { name: "小小星球 (球状地形)", code: "planetoids" },
-        { name: "水上乐园 (更多液体)", code: "waterpark" },
-        { name: "箱子内有传送枪", code: "" },
-        { name: "凛冬将至 (全雪原地表)", code: "winter is coming" },
-        { name: "南瓜季", code: "pumpkin season" },
-        { name: "永久万圣节", code: "hocus pocus" },
-        { name: "永久圣诞节", code: "jingle all the way" },
-        { name: "恶魔城诅咒 (吸血鬼)", code: "what a horrible night to have a curse" },
+        { name: "无感染", code: "fish mox" },
+        { name: "地表为神圣", code: "does that sparkle" },
+        { name: "世界被感染", code: "purify this" },
+        { name: "地表为蘑菇", code: "toadstool" },
+        { name: "地表为沙漠", code: "sandy britches" },
+        { name: "到处都是臭臭", code: "truck stop" },
+        { name: "无蜘蛛洞", code: "arachnophobia" },
+        { name: "更多陷阱 (实际上没有)", code: "more traps please" },
+        { name: "彩虹物件", code: "rainbow road" },
+        { name: "挖更多洞", code: "jagged rocks" },
+        { name: "圆形地块 (小行星)", code: "planetoids" },
+        { name: "额外液体 (水上乐园)", code: "waterpark" },
+        { name: "宝箱传送枪", code: "we dont even test for that" },
+        { name: "世界被冻结 (凛冬将至)", code: "winter is coming" },
+        { name: "万圣节生成 (南瓜季)", code: "pumpkin season" },
+        { name: "无尽万圣节", code: "hocus pocus" },
+        { name: "无尽圣诞节", code: "jingle all the way" },
+        { name: "吸血鬼症", code: "what a horrible night to have a curse" },
         { name: "团队出生点 (大逃杀)", code: "royale with cheese" },
-        { name: "双地牢", code: "double daring dangers" }
+        { name: "双重地牢", code: "double daring dangers" }
     ];
 
     // 初始化页面
@@ -508,14 +508,15 @@
         container.innerHTML = '';
         eggs.forEach((egg, index) => {
             const div = document.createElement('div');
-            const isDisabled = egg.code === "";
-            div.className = `egg-item ${isDisabled ? 'egg-undisclosed' : ''}`;
+            // const isDisabled = egg.code === "";
+            // div.className = `egg-item ${isDisabled ? 'egg-undisclosed' : ''}`;
+            div.className = 'egg-item';
             
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `egg_${index}`;
             checkbox.value = egg.code;
-            checkbox.disabled = isDisabled;
+            // checkbox.disabled = isDisabled;
 
             const label = document.createElement('label');
             label.htmlFor = `egg_${index}`;
@@ -523,7 +524,8 @@
 
             const codeDiv = document.createElement('div');
             codeDiv.className = 'seed-code';
-            codeDiv.innerText = isDisabled ? "" : egg.code;
+            // codeDiv.innerText = isDisabled ? "" : egg.code;
+            codeDiv.innerText = egg.code;
             label.appendChild(codeDiv);
 
             div.appendChild(checkbox);
@@ -608,7 +610,8 @@
         if (Math.random() < 0.125) document.getElementById('flag256').checked = true;
 
         // 彩蛋：随机选 0-4 个
-        const eggBoxes = document.querySelectorAll('.eggs-list input:not(:disabled)');
+        // const eggBoxes = document.querySelectorAll('.eggs-list input:not(:disabled)');
+        const eggBoxes = document.querySelectorAll('.eggs-list input');
         eggBoxes.forEach(box => box.checked = false);
         const count = Math.floor(Math.random() * 5); // 0 to 4
         for(let i=0; i<count; i++) {
