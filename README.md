@@ -2,6 +2,14 @@ A collection of simple web applications built by Gemini. Have fun exploring!
 
 ## Tools
 
+### Terraria 1.4.5 Seed Generator
+
+Link: [/terraria-seed.html](/terraria-seed.html)
+
+A Terraria 1.4.5 world seed generator that allows you to specify special world features and secret seeds.
+
+![](images/terraria-seed.png)
+
 ### Minimax Visualizer
 
 Link: [/minimax.html](/minimax.html)
@@ -9,14 +17,6 @@ Link: [/minimax.html](/minimax.html)
 A Minimax / Alpha-Beta pruning visualizer.
 
 ![](images/minimax.png)
-
-### Terraria 1.4.5 Seed Generator
-
-Link: [/terraria-seed.html](/terraria-seed.html)
-
-A Terraria 1.4.5 world seed generator that allows you to specify special world features and secret seeds.
-
-![](images/terraseeder.png)
 
 ## Games
 
