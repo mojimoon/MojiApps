@@ -1,4 +1,4 @@
-A collection of simple web applications built by Gemini. Have fun exploring!
+A collection of simple web applications. Have fun exploring!
 
 ## Tools
 
