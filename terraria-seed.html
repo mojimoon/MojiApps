@@ -32,9 +32,13 @@
         .container {
             display: flex;
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             flex-wrap: wrap;
+        }
+        @media (min-width: 1100px) {
+            .left-panel { flex: 2.4; }
+            .right-panel { flex: 1; }
         }
 
         /* 左侧面板 */
@@ -143,15 +147,14 @@
 
         /* 彩蛋列表 */
         .eggs-list {
-            max-height: 400px;
-            overflow-y: auto;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 10px;
             background: rgba(0,0,0,0.2);
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px 12px;
+            align-items: start;
         }
         .egg-item {
             display: flex;
@@ -182,8 +185,13 @@
             font-size: 0.95em;
             color: var(--accent-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 8px 4px 4px;
-            margin-top: 4px;
+            padding: 10px 4px 5px;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+        .egg-category:first-child {
+            margin-top: 0;
+            padding-top: 2px;
         }
 
         /* 随机种子输入 */
@@ -436,7 +444,6 @@
         <div class="format-desc">
             <strong>种子结构说明：</strong><br>
             <code>大小.难度.邪恶.特殊标志.彩蛋|彩蛋...|随机数</code>
-            <br><br>
             <ul>
                 <li><strong>大小：</strong>1=小, 2=中, 3=大</li>
                 <li><strong>难度：</strong>1=普通, 2=专家, 3=大师, 4=旅途</li>
@@ -449,7 +456,7 @@
 
         <div class="format-desc">
             <strong>示例种子：</strong> <code>2.3.2.9.planetoids|i am error|01312026</code> <br>
-            表示：中等大小，大师难度，猩红邪恶，标志值 9（一醉方休 1 + 十年庆典 8），包含彩蛋小小星球和错误世界，随机数 1312026。
+            表示：中等大小，大师难度，猩红邪恶，标志值 9（一醉方休 1 + 十年庆典 8），包含彩蛋圆形地块和错误世界，随机数 1312026。
 
             <br><br>
 
@@ -501,7 +508,7 @@
         // 生成点
         { name: "随机生成点", code: "how did i get here", category: "生成点" },
         { name: "团队生成点", code: "royale with cheese", category: "生成点" },
-        // 其他种子（含 wiki 未列出的两个雷电种子）
+        // 其他种子
         { name: "对偶地牢", code: "double daring dangers", category: "其他种子" },
         { name: "错误世界", code: "i am error", category: "其他种子" },
         { name: "开局血月墓地", code: "night of the living dead", category: "其他种子" },
@@ -616,8 +623,8 @@
         // 重置标志
         resetFlagsUI();
         
-        // 15% 概率天顶
-        if (Math.random() < 0.15) {
+        // 10% 概率天顶
+        if (Math.random() < 0.1) {
             document.getElementById('flag255').checked = true;
             handleZenith(document.getElementById('flag255'));
         } else {
@@ -629,8 +636,8 @@
                 }
             });
         }
-        // 12.5% 概率天空岛
-        if (Math.random() < 0.125) document.getElementById('flag256').checked = true;
+        // 10% 概率天空岛
+        if (Math.random() < 0.1) document.getElementById('flag256').checked = true;
 
         // 彩蛋：随机选 0-4 个
         // const eggBoxes = document.querySelectorAll('.eggs-list input:not(:disabled)');
