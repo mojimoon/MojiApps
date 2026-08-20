@@ -176,6 +176,15 @@
             font-size: 0.8em;
             color: var(--seed-color);
         }
+        .egg-category {
+            grid-column: 1 / -1;
+            font-weight: bold;
+            font-size: 0.95em;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 4px 4px;
+            margin-top: 4px;
+        }
 
         /* 随机种子输入 */
         .seed-input-group {
@@ -385,9 +394,9 @@
             </div>
         </div>
 
-        <!-- 彩蛋种子 -->
+        <!-- 秘密世界种子 -->
         <div class="control-group">
-            <span class="control-label">彩蛋种子</span>
+            <span class="control-label">秘密世界种子</span>
             <div class="eggs-list" id="eggsList">
                 <!-- JS 动态生成 -->
             </div>
@@ -448,51 +457,58 @@
             
             <br>
             
-            部分彩蛋种子（如 arachnophobia 和 more traps please）在总共有至少 4 个彩蛋时效果会变化或反转。
+            部分秘密种子（如 arachnophobia 和 more traps please）在总共有至少 4 个彩蛋时效果会变化或反转。
         </div>
     </div>
 </div>
 
 <script>
-    // 彩蛋数据
+    // 秘密世界种子数据（按 wiki 分类）
     const eggs = [
-        { name: "灰色世界", code: "monochrome" },
-        { name: "反色世界", code: "negative infinity" },
-        { name: "回声世界 (隐形)", code: "invisible plane" },
-        { name: "夜明世界 (全亮)", code: "xray vision" },
-        { name: "无地表", code: "mole people" },
-        { name: "更多生命树", code: "save the rainforest" },
-        { name: "更多漂浮岛", code: "the carebears movie" },
-        { name: "错误世界", code: "i am error" },
-        { name: "活死人之夜 (血月墓地开局)", code: "night of the living dead" },
-        { name: "地表为太空", code: "such great heights" },
-        { name: "降雨一整年", code: "bring a towel" },
-        { name: "更大废弃房屋", code: "abandoned manors" },
-        { name: "随机出生点", code: "how did i get here" },
-        { name: "添加传送机", code: "beam me up" },
-        { name: "困难模式开局", code: "too easy" },
-        { name: "无感染", code: "fish mox" },
-        { name: "地表为神圣", code: "does that sparkle" },
-        { name: "世界被感染", code: "purify this" },
-        { name: "地表为蘑菇", code: "toadstool" },
-        { name: "地表为沙漠", code: "sandy britches" },
-        { name: "到处都是臭臭", code: "truck stop" },
-        { name: "无蜘蛛洞", code: "arachnophobia" },
-        { name: "更多陷阱 (实际上没有)", code: "more traps please" },
-        { name: "彩虹物件", code: "rainbow road" },
-        { name: "挖更多洞", code: "jagged rocks" },
-        { name: "圆形地块 (小行星)", code: "planetoids" },
-        { name: "额外液体 (水上乐园)", code: "waterpark" },
-        { name: "宝箱传送枪", code: "we dont even test for that" },
-        { name: "世界被冻结 (凛冬将至)", code: "winter is coming" },
-        { name: "万圣节生成 (南瓜季)", code: "pumpkin season" },
-        { name: "无尽万圣节", code: "hocus pocus" },
-        { name: "无尽圣诞节", code: "jingle all the way" },
-        { name: "吸血鬼症", code: "what a horrible night to have a curse" },
-        { name: "团队出生点 (大逃杀)", code: "royale with cheese" },
-        { name: "双重地牢", code: "double daring dangers" },
-        { name: "更多雷电", code: "electric boogaloo" },
-        { name: "禁用雷电", code: "calm before the storm" }
+        // 世界刷漆
+        { name: "灰度世界", code: "monochrome", category: "世界刷漆" },
+        { name: "反色世界", code: "negative infinity", category: "世界刷漆" },
+        { name: "回声世界", code: "invisible plane", category: "世界刷漆" },
+        { name: "夜明世界", code: "xray vision", category: "世界刷漆" },
+        // 世界生成
+        { name: "多洞世界", code: "jagged rocks", category: "世界生成" },
+        { name: "无地表", code: "mole people", category: "世界生成" },
+        { name: "圆形地块", code: "planetoids", category: "世界生成" },
+        { name: "太空地表", code: "such great heights", category: "世界生成" },
+        { name: "多液世界", code: "waterpark", category: "世界生成" },
+        // 生物群系生成
+        { name: "无蜘蛛窝", code: "arachnophobia", category: "生物群系生成" },
+        { name: "地表神圣", code: "does that sparkle", category: "生物群系生成" },
+        { name: "无感染", code: "fish mox", category: "生物群系生成" },
+        { name: "世界被感染", code: "purify this", category: "生物群系生成" },
+        { name: "沙漠地表", code: "sandy britches", category: "生物群系生成" },
+        { name: "蘑菇地表", code: "toadstool", category: "生物群系生成" },
+        { name: "冰封世界", code: "winter is coming", category: "生物群系生成" },
+        // 结构生成
+        { name: "巨大废屋", code: "abandoned manors", category: "结构生成" },
+        { name: "添加传送机", code: "beam me up", category: "结构生成" },
+        { name: "真没陷阱", code: "more traps please", category: "结构生成" },
+        { name: "万圣节生成", code: "pumpkin season", category: "结构生成" },
+        { name: "彩虹要素", code: "rainbow road", category: "结构生成" },
+        { name: "多生命树", code: "save the rainforest", category: "结构生成" },
+        { name: "多漂浮岛", code: "the carebears movie", category: "结构生成" },
+        { name: "处处臭臭", code: "truck stop", category: "结构生成" },
+        { name: "宝箱传送枪", code: "we dont even test for that", category: "结构生成" },
+        // 被动效果
+        { name: "雨下整年", code: "bring a towel", category: "被动效果" },
+        { name: "无尽万圣", code: "hocus pocus", category: "被动效果" },
+        { name: "无尽圣诞", code: "jingle all the way", category: "被动效果" },
+        // 生成点
+        { name: "随机生成点", code: "how did i get here", category: "生成点" },
+        { name: "团队生成点", code: "royale with cheese", category: "生成点" },
+        // 其他种子（含 wiki 未列出的两个雷电种子）
+        { name: "对偶地牢", code: "double daring dangers", category: "其他种子" },
+        { name: "错误世界", code: "i am error", category: "其他种子" },
+        { name: "开局血月墓地", code: "night of the living dead", category: "其他种子" },
+        { name: "开局困难模式", code: "too easy", category: "其他种子" },
+        { name: "吸血鬼症", code: "what a horrible night to have a curse", category: "其他种子" },
+        { name: "更多雷电", code: "electric boogaloo", category: "其他种子" },
+        { name: "禁用雷电", code: "calm before the storm", category: "其他种子" }
     ];
 
     // 初始化页面
@@ -504,21 +520,27 @@
         }
     };
 
-    // 渲染彩蛋列表
+    // 渲染秘密世界种子列表（按分类分组）
     function renderEggs() {
         const container = document.getElementById('eggsList');
         container.innerHTML = '';
+        let currentCategory = null;
         eggs.forEach((egg, index) => {
+            if (egg.category !== currentCategory) {
+                currentCategory = egg.category;
+                const header = document.createElement('div');
+                header.className = 'egg-category';
+                header.innerText = egg.category;
+                container.appendChild(header);
+            }
+
             const div = document.createElement('div');
-            // const isDisabled = egg.code === "";
-            // div.className = `egg-item ${isDisabled ? 'egg-undisclosed' : ''}`;
             div.className = 'egg-item';
             
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `egg_${index}`;
             checkbox.value = egg.code;
-            // checkbox.disabled = isDisabled;
 
             const label = document.createElement('label');
             label.htmlFor = `egg_${index}`;
@@ -526,7 +548,6 @@
 
             const codeDiv = document.createElement('div');
             codeDiv.className = 'seed-code';
-            // codeDiv.innerText = isDisabled ? "" : egg.code;
             codeDiv.innerText = egg.code;
             label.appendChild(codeDiv);
 
