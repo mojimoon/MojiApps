@@ -4,7 +4,7 @@ A collection of simple web applications. Have fun exploring!
 
 ### Terraria 1.4.5 Seed Generator
 
-Link: [/terraria-seed.html](/terraria-seed.html)
+Link: [/terraria](/terraria)
 
 A Terraria 1.4.5 world seed generator that allows you to specify special world features and secret seeds.
 
@@ -12,7 +12,7 @@ A Terraria 1.4.5 world seed generator that allows you to specify special world f
 
 ### Minimax Visualizer
 
-Link: [/minimax.html](/minimax.html)
+Link: [/minimax](/minimax)
 
 A Minimax / Alpha-Beta pruning visualizer.
 
@@ -22,7 +22,7 @@ A Minimax / Alpha-Beta pruning visualizer.
 
 ### Hardle
 
-Link: [/hardle/index.html](/hardle/index.html)
+Link: [/hardle](/hardle)
 
 A very simple fork of [hardle.org](https://hardle.org/) written in plain HTML/CSS/JS.
 
@@ -41,19 +41,19 @@ Good luck and have fun!
 
 ### Klondike Solitaire
 
-Link: [/klondike.html](/klondike.html)
+Link: [/klondike](/klondike)
 
 A simple Klondike Solitaire game.
 
 ### Texas Hold'em Poker
 
-Link: [/balatro.jsx](/balatro.jsx) (React)
+Link: [/balatro](/balatro)
 
 A simple Balatro clone implementing the core mechanics, inspired by Texas Hold'em poker.
 
 ### Arrow Puzzle
 
-Link: [/arrow-puzzle.html](/arrow-puzzle.html)
+Link: [/arrow-puzzle](/arrow-puzzle)
 
 An arrow puzzle game inspired by the minigame in "Exponential Idle".
 
